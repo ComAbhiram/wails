@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wails Cafe – Curated For Cravings</title>
+<meta name="description" content="Wails Cafe – a new generation of food culture. Young, vibrant, and flavorful rooftop cafe experience in Kochi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader" class="page-loader">
+  <div class="loader-inner">
+    <img src="assets/logo.svg" alt="Wails Cafe" class="loader-logo">
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<!-- ORDER POPUP MODAL -->
+<div id="order-popup" class="order-popup-overlay" role="dialog" aria-modal="true" aria-label="Choose delivery platform">
+  <div class="order-popup-box">
+    <button class="popup-close" id="popup-close-btn" aria-label="Close">&times;</button>
+    <img src="assets/logo.svg" alt="Wails Cafe" class="popup-logo">
+    <h2 class="popup-title">Order Online</h2>
+    <p class="popup-sub">Choose your preferred delivery platform</p>
+    <div class="popup-btns">
+      <a href="https://www.swiggy.com/city/kochi/wails-cafe-kaloor-mg-road-rest1060793" target="_blank" rel="noopener" class="popup-platform swiggy" id="popup-swiggy">
+        <svg viewBox="0 0 120 40" width="120" height="40"><rect width="120" height="40" rx="8" fill="#FC8019"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="Arial Black,sans-serif" font-size="16" font-weight="900">swiggy</text></svg>
+        <span>Order on Swiggy</span>
+      </a>
+      <a href="https://www.zomato.com/kochi/wails-cafe-ernakulam-city" target="_blank" rel="noopener" class="popup-platform zomato" id="popup-zomato">
+        <svg viewBox="0 0 120 40" width="120" height="40"><rect width="120" height="40" rx="8" fill="#E23744"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="Arial Black,sans-serif" font-size="16" font-weight="900">zomato</text></svg>
+        <span>Order on Zomato</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- HEADER -->
+<header id="header">
+  <nav>
+    <!-- DESKTOP NAV -->
+    <ul class="nav-links nav-left">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#menu">MENU</a></li>
+      <li><a href="#franchise">FRANCHISE</a></li>
+    </ul>
+    <div class="logo-container">
+      <a href="#home"><img src="assets/logo.svg" alt="Wails Cafe Logo"></a>
+    </div>
+    <ul class="nav-links nav-right">
+      <li><a href="#offers">OFFERS</a></li>
+      <li><a href="#branches">BRANCHES</a></li>
+      <li><a href="tel:+919744336243" class="nav-phone" id="nav-phone-link">📞 +91 9744336243</a></li>
+    </ul>
+    <!-- MOBILE HAMBURGER -->
+    <button class="ham-btn" id="ham-btn" aria-label="Toggle Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <!-- MOBILE MENU DRAWER -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home" class="mob-link">HOME</a>
+    <a href="#menu" class="mob-link">MENU</a>
+    <a href="#franchise" class="mob-link">FRANCHISE</a>
+    <a href="#offers" class="mob-link">OFFERS</a>
+    <a href="#branches" class="mob-link">BRANCHES</a>
+    <a href="#contact" class="mob-link">CONTACT</a>
+    <a href="tel:+919744336243" class="mob-link mob-phone">📞 +91 9744336243</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="assets/wails banner web size out.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title anim-title">CURATED FOR<br>CRAVINGS</h1>
+    <button class="hero-cta-btn" id="hero-order-btn" aria-label="Order Now">GET YOUR BITE</button>
+  </div>
+  <div class="wave-divider-hero">
+    <svg viewBox="0 0 1920 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,60 C320,120 640,0 960,60 C1280,120 1600,0 1920,60 L1920,120 L0,120 Z" fill="#FFBD00"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-wave-top">
+    <svg viewBox="0 0 1920 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,60 C320,0 640,120 960,60 C1280,0 1600,120 1920,60 L1920,0 L0,0 Z" fill="#FFBD00"/>
+    </svg>
+  </div>
+  <!-- floating food shapes -->
+  <img src="assets/fa9d7fa6fc9750ed3940b5cd54e09769f1397997.png" alt="" class="about-float-shape about-float-left" aria-hidden="true">
+  <img src="assets/f123e1dbc118c6918ec2ec7d0fb3096f7d979734.png" alt="" class="about-float-shape about-float-right" aria-hidden="true">
+  <div class="about-inner">
+    <div class="about-content reveal">
+      <h2>ABOUT WAILS</h2>
+      <p>Taste is never silent at Wails.</p>
+      <p>Wails Cafe represents a new generation of food culture: young, vibrant, and flavorful. We bring the urban taste to the table with our rooftop cafe experience in Kochi. Our cuisine combines creative ideas with beloved classics, freshly prepared, carefully selected, and perfectly curated to the tastes of the city. Our goal is simple: delicious food that sticks in your mind and in your heart. Every dish at Wails is made with love and made for people who appreciate something special in everyday life.</p>
+      <a href="#" class="btn btn-dive">Dive Deeper</a>
+    </div>
+  </div>
+  <div class="uniquely-wails reveal">
+    <div class="uniquely-inner">
+      <div class="uniquely-text">
+        <h3>UNIQUELY WAILS</h3>
+        <p>Something different is always on the menu at Wails. We're young, bold, and unapologetically delicious.</p>
+      </div>
+      <div class="blob-image-container">
+        <img src="assets/f75eec43c9005a29b4a7d2fc8c0e862e903956cd.png" alt="Wails Team">
+      </div>
+    </div>
+  </div>
+  <div class="wave-divider-about-bottom">
+    <svg viewBox="0 0 1920 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,60 C320,120 640,0 960,60 C1280,120 1600,0 1920,60 L1920,120 L0,120 Z" fill="#50297C"/>
+    </svg>
+  </div>
+</section>
+
+<!-- FOOD MENU -->
+<section class="food-menu" id="menu">
+  <div class="container">
+    <h2 class="section-title reveal anim-title">Food Menu</h2>
+    <div class="menu-tabs reveal">
+      <button class="tab-btn active" data-category="breakfast" id="tab-breakfast">All</button>
+      <button class="tab-btn" data-category="rolls" id="tab-rolls">Rolls</button>
+      <button class="tab-btn" data-category="burgers" id="tab-burgers">Burgers</button>
+      <button class="tab-btn" data-category="sandwiches" id="tab-sandwiches">Sandwiches</button>
+      <button class="tab-btn" data-category="snacks" id="tab-snacks">Snacks</button>
+      <button class="tab-btn" data-category="evening" id="tab-evening">Evening Dishes</button>
+      <button class="tab-btn" data-category="common" id="tab-common">Common Foods</button>
+      <button class="tab-btn" data-category="drinks" id="tab-drinks">Drinks</button>
+    </div>
+    <div class="menu-content">
+      <div class="menu-left">
+        <div class="category-header">
+          <div class="star-cross-icon">
+            <span class="star-h"></span>
+            <span class="star-v"></span>
+          </div>
+          <h3 id="current-category">BREAKFAST</h3>
+        </div>
+        <div class="menu-items" id="menu-items" style="transition: opacity 0.3s, transform 0.3s;"></div>
+        <div class="menu-sub-header">
+          <div class="star-cross-icon">
+            <span class="star-h"></span>
+            <span class="star-v"></span>
+          </div>
+          <h3>LUNCH</h3>
+        </div>
+        <div class="menu-sub-header">
+          <div class="star-cross-icon">
+            <span class="star-h"></span>
+            <span class="star-v"></span>
+          </div>
+          <h3>JUICE &amp; SHAKES</h3>
+        </div>
+        <div class="menu-sub-header">
+          <div class="star-cross-icon">
+            <span class="star-h"></span>
+            <span class="star-v"></span>
+          </div>
+          <h3>DINNER</h3>
+        </div>
+      </div>
+      <div class="menu-visual reveal">
+        <img src="assets/40e328e9cbc4fecdd2e74e251b751ed1c72cb17e.png" alt="Menu Food">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND WAILS -->
+<section class="beyond-wails" id="beyond">
+  <div class="container">
+    <div class="beyond-layout reveal">
+      <div class="beyond-images">
+        <img src="assets/50bffdc95097d5da24d8753ed9eda9ea0b8a8296.png" alt="Wails Team" class="beyond-img-1">
+        <img src="assets/6793f790712e6b2d1ba628b140165ac178c43623.png" alt="Wails Cafe Guests" class="beyond-img-2">
+      </div>
+      <div class="beyond-text">
+        <h2>WAILS BEYOND WALLS,<br>OUTSOURCED</h2>
+        <p>You love the taste of Wails Cafe, and now you can serve it at your place. With Wails Beyond Walls, we offer our food as an outsourcing service for cafes, restaurants, events, and companies. Whether you want to expand your menu, plan a special for an event, or integrate our cooking style into your menu, we deliver the quality, taste, and expertise.</p>
+        <ul class="beyond-list">
+          <li><span class="bullet-star">★</span> Diverse menu options</li>
+          <li><span class="bullet-star">★</span> Fresh and reliable delivery</li>
+          <li><span class="bullet-star">★</span> Ideal for events, co-kitchens, catering partners, and more</li>
+        </ul>
+        <a href="tel:+919744336243" class="btn btn-yellow" id="contact-btn">CONTACT US FOR CUSTOMIZED MENU</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRANCHISE -->
+<section class="franchise" id="franchise">
+  <div class="container">
+    <h2 class="section-title reveal anim-title">OWN A WAILS FRANCHISE</h2>
+    <div class="franchise-grid reveal">
+      <div class="franchise-card">
+        <div class="card-img">
+          <img src="assets/36791cc1c7db0277a3f8a36fda8b6b2b5441d40d.png" alt="Strong Brand">
+        </div>
+        <div class="card-info">
+          <h4>A strong start with a strong brand</h4>
+          <p>Wails is already a successfully established brand. With us, you're not starting from scratch; you benefit from a proven concept.</p>
+        </div>
+      </div>
+      <div class="franchise-card">
+        <div class="card-img">
+          <img src="assets/0f7ca8f690654a2462bb8c481333e94b230414d1.png" alt="Support">
+        </div>
+        <div class="card-info">
+          <h4>Support you can count on</h4>
+          <p>We'll assist you every step of the way: from setup to daily operation. You're independent, but never alone.</p>
+        </div>
+      </div>
+      <div class="franchise-card">
+        <div class="card-img">
+          <img src="assets/d7dae1294ccfbd13b732ba85ce7d5148ec0a4365.png" alt="Cuisine">
+        </div>
+        <div class="card-info">
+          <h4>Modern &amp; Curated Cuisine</h4>
+          <p>Our menu captures the spirit of the times. Fresh, diverse, and exactly what your guests will love.</p>
+        </div>
+      </div>
+    </div>
+    <div class="franchise-cta reveal">
+      <a href="tel:+919744336243" class="btn btn-yellow" id="franchise-btn">franchise with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER WITH US -->
+<section class="partner" id="partner">
+  <div class="container">
+    <div class="partner-layout reveal">
+      <div class="partner-food-img">
+        <img src="assets/f5efbe7f8af8a2592524f8726816d2c8fd70b86d.png" alt="Food">
+      </div>
+      <div class="partner-text">
+        <h2>PARTNER WITH US</h2>
+        <p>We believe in strong partnerships that create real added value. We're open to tasty partnerships with anyone who has an innovative idea, be it a cafe, event planner, business owner, or someone else. We offer tried-and-tested recipes and culinary expertise, fresh menus to expand your offerings, flexible food outsourcing for events and locations, and reliable collaboration.</p>
+        <a href="#" class="btn btn-hero" id="partner-btn">Get Your Bite</a>
+      </div>
+      <div class="partner-food-img">
+        <img src="assets/f2cfb5b4cedff1cc05fc272e72adb5400a63a097.png" alt="Food 2">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS MENU -->
+<section class="events" id="offers">
+  <div class="container">
+    <h2 class="section-title reveal anim-title">Offers Menu</h2>
+    <div class="events-grid reveal">
+      <div class="event-circle">
+        <div class="circle-border">
+          <img src="assets/barbeque.png" alt="Barbeque">
+        </div>
+        <div class="event-name">
+          <span class="ev-star">★</span>
+          <span>Barbeque</span>
+        </div>
+        <p class="event-info">60 CALORIES + 2 PERSONS</p>
+        <p class="event-price">₹ 210</p>
+      </div>
+      <div class="event-circle">
+        <div class="circle-border">
+          <img src="assets/burger.png" alt="Burger">
+        </div>
+        <div class="event-name">
+          <span class="ev-star">★</span>
+          <span>Burger</span>
+        </div>
+        <p class="event-info">60 CALORIES + 2 PERSONS</p>
+        <p class="event-price">₹ 120</p>
+      </div>
+      <div class="event-circle">
+        <div class="circle-border">
+          <img src="assets/ricebow.png" alt="Rice Bowl">
+        </div>
+        <div class="event-name">
+          <span class="ev-star">★</span>
+          <span>Rice Bowl</span>
+        </div>
+        <p class="event-info">60 CALORIES + 2 PERSONS</p>
+        <p class="event-price">₹ 150</p>
+      </div>
+      <div class="event-circle">
+        <div class="circle-border">
+          <img src="assets/loaded fries.png" alt="Loaded Fries">
+        </div>
+        <div class="event-name">
+          <span class="ev-star">★</span>
+          <span>Loaded Fries</span>
+        </div>
+        <p class="event-info">60 CALORIES + 2 PERSONS</p>
+        <p class="event-price">₹ 170</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="branches" id="branches">
+  <div class="container">
+    <h2 class="section-title reveal anim-title">OUR BRANCHES</h2>
+    <div class="branches-grid reveal">
+      <div class="branch-card">
+        <img src="assets/6793f790712e6b2d1ba628b140165ac178c43623.png" alt="Kochi MG Road Branch">
+        <div class="branch-overlay">
+          <div class="branch-tag"><span class="pin-icon">📍</span> Kochi – MG Road</div>
+          <p class="branch-addr">6th Floor, Imperial Trade Centre, MG Road, Padma Junction, Kacheripady, Kochi, Kerala 682035</p>
+        </div>
+      </div>
+      <div class="branch-card">
+        <img src="assets/0f7ca8f690654a2462bb8c481333e94b230414d1.png" alt="Aluva Branch">
+        <div class="branch-overlay">
+          <div class="branch-tag"><span class="pin-icon">📍</span> Aluva, Kochi</div>
+          <p class="branch-addr">3rd Floor, Yash Square Building, Thottumugham Jn, Aluva, Kochi</p>
+        </div>
+      </div>
+      <div class="branch-card">
+        <img src="assets/d7dae1294ccfbd13b732ba85ce7d5148ec0a4365.png" alt="Coming Soon">
+        <div class="branch-overlay">
+          <div class="branch-tag coming">🚀 Coming Soon</div>
+          <p class="branch-addr">New locations expanding across Kerala. Stay tuned!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section class="voices" id="gallery">
+  <div class="wave-divider-voices-top">
+    <svg viewBox="0 0 1920 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,60 C320,0 640,120 960,60 C1280,0 1600,120 1920,60 L1920,0 L0,0 Z" fill="#50297C"/>
+    </svg>
+  </div>
+  <div class="container">
+    <h2 class="section-title reveal anim-title">Voices of Experience</h2>
+    <p class="section-subtitle reveal">Wails as you experience it. Discover how our guests see, experience, and celebrate Wails Cafe – straight from social media.</p>
+    <div class="voices-slider reveal">
+      <img src="assets/f67ce50319514fb218e4dd5206212a330f81d070.png" alt="Guest 1">
+      <img src="assets/f57a9bafd21bfbfac7a6a9d70fc653e37e9262b4.png" alt="Guest 2">
+      <img src="assets/f6a248e295a8af038854806972d288a1f985f94a.png" alt="Guest 3">
+      <img src="assets/eedbc40a2aef36b39568ba06fa0d3801fa7898b5.png" alt="Guest 4">
+      <img src="assets/eaf97598453b652f1b18be4c7af62b8d1712e806.png" alt="Guest 5">
+      <img src="assets/e63c52b1b37ad6423b4ce78f46e2395f38996508.png" alt="Guest 6">
+      <img src="assets/e55f7f6347f08f01140284c96587094812941cd2.png" alt="Guest 7">
+      <img src="assets/e1d6c1c804a5c907b01e26adb9673e56a5d383de.png" alt="Guest 8">
+    </div>
+    <div class="voices-cta reveal">
+      <a href="#" class="btn btn-yellow" id="view-all-btn">view all</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA -->
+<section class="social-media social-media-yellow">
+  <div class="container">
+    <h2 class="section-title reveal anim-title" style="color:var(--primary-purple);">CONNECT WITH OUR SOCIAL MEDIA</h2>
+    <p class="section-subtitle reveal" style="color:var(--primary-purple);opacity:0.8;">Follow us on Instagram for the latest vibes, food drops &amp; behind-the-scenes goodness.</p>
+
+    <!-- MOBILE MOCKUP DISPLAY -->
+    <div class="phone-showcase reveal">
+      <!-- Scrolling strip left -->
+      <div class="phone-side-strip phone-left-strip">
+        <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="side-insta-card">
+          <img src="assets/f67ce50319514fb218e4dd5206212a330f81d070.png" alt="Instagram">
+          <div class="side-play"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="rgba(244,182,44,0.9)"/><polygon points="16,12 32,20 16,28" fill="white"/></svg></div>
+        </a>
+        <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="side-insta-card">
+          <img src="assets/e63c52b1b37ad6423b4ce78f46e2395f38996508.png" alt="Instagram">
+          <div class="side-play"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="rgba(244,182,44,0.9)"/><polygon points="16,12 32,20 16,28" fill="white"/></svg></div>
+        </a>
+        <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="side-insta-card">
+          <img src="assets/e55f7f6347f08f01140284c96587094812941cd2.png" alt="Instagram">
+          <div class="side-play"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="rgba(244,182,44,0.9)"/><polygon points="16,12 32,20 16,28" fill="white"/></svg></div>
+        </a>
+      </div>
+
+      <!-- Center phone mockup -->
+      <div class="phone-mockup-wrap">
+        <div class="phone-frame">
+          <img src="assets/mobile.png" alt="Phone frame" class="phone-frame-img">
+          <div class="phone-screen">
+            <div class="phone-scroll-track" id="phone-scroll-track">
+              <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="phone-slide">
+                <img src="assets/f67ce50319514fb218e4dd5206212a330f81d070.png" alt="Wails Instagram">
+              </a>
+              <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="phone-slide">
+                <img src="assets/f57a9bafd21bfbfac7a6a9d70fc653e37e9262b4.png" alt="Wails Instagram">
+              </a>
+              <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="phone-slide">
+                <img src="assets/f6a248e295a8af038854806972d288a1f985f94a.png" alt="Wails Instagram">
+              </a>
+              <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="phone-slide">
+                <img src="assets/eedbc40a2aef36b39568ba06fa0d3801fa7898b5.png" alt="Wails Instagram">
+              </a>
+              <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="phone-slide">
+                <img src="assets/eaf97598453b652f1b18be4c7af62b8d1712e806.png" alt="Wails Instagram">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrolling strip right -->
+      <div class="phone-side-strip phone-right-strip">
+        <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="side-insta-card">
+          <img src="assets/f57a9bafd21bfbfac7a6a9d70fc653e37e9262b4.png" alt="Instagram">
+          <div class="side-play"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="rgba(244,182,44,0.9)"/><polygon points="16,12 32,20 16,28" fill="white"/></svg></div>
+        </a>
+        <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="side-insta-card">
+          <img src="assets/e1d6c1c804a5c907b01e26adb9673e56a5d383de.png" alt="Instagram">
+          <div class="side-play"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="rgba(244,182,44,0.9)"/><polygon points="16,12 32,20 16,28" fill="white"/></svg></div>
+        </a>
+        <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="side-insta-card">
+          <img src="assets/eedbc40a2aef36b39568ba06fa0d3801fa7898b5.png" alt="Instagram">
+          <div class="side-play"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="rgba(244,182,44,0.9)"/><polygon points="16,12 32,20 16,28" fill="white"/></svg></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="social-cta reveal">
+      <a href="https://www.instagram.com/wails.cafe/" target="_blank" rel="noopener" class="btn btn-insta" id="connect-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Follow on Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2 class="section-title reveal anim-title">Find Us</h2>
+    <p class="section-subtitle reveal">Visit us at any of our locations or get in touch.</p>
+    <div class="contact-layout reveal">
+      <div class="contact-addresses">
+        <div class="address-card">
+          <div class="address-icon">📍</div>
+          <div>
+            <h4>Kochi – MG Road</h4>
+            <p>6th Floor, Imperial Trade Centre, MG Road, Padma Junction, Kacheripady, Kochi, Ernakulam, Kerala 682035</p>
+            <a href="https://maps.google.com/?q=Imperial+Trade+Centre+MG+Road+Kochi" target="_blank" rel="noopener" class="map-link" id="map-link-1">Open in Maps →</a>
+          </div>
+        </div>
+        <div class="address-card">
+          <div class="address-icon">📍</div>
+          <div>
+            <h4>Aluva, Kochi</h4>
+            <p>3rd Floor, Yash Square Building, Thottumugham Jn, Aluva, Kochi</p>
+            <a href="https://maps.google.com/?q=Yash+Square+Building+Thottumugham+Aluva+Kochi" target="_blank" rel="noopener" class="map-link" id="map-link-2">Open in Maps →</a>
+          </div>
+        </div>
+        <div class="address-card contact-phone-card">
+          <div class="address-icon">📞</div>
+          <div>
+            <h4>Call Us</h4>
+            <a href="tel:+919744336243" class="contact-tel" id="contact-phone">+91 9744336243</a>
+          </div>
+        </div>
+        <div class="address-card">
+          <div class="address-icon">✉</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:enquiries@wailscafe.com" class="contact-tel" id="contact-email">enquiries@wailscafe.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0!2d76.2673!3d9.9816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514abec6bf%3A0x780d86b7fdde5a2e!2sImperial%20Trade%20Centre!5e0!3m2!1sen!2sin!4v1"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Wails Cafe Location Map">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wave-top">
+    <svg viewBox="0 0 1920 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,60 C320,0 640,120 960,60 C1280,0 1600,120 1920,60 L1920,0 L0,0 Z" fill="#50297C"/>
+    </svg>
+  </div>
+  <div class="footer-yellow-bar">
+    <div class="container">
+      <nav class="footer-nav">
+        <a href="#home">Home</a>
+        <a href="#about">The Wails Cafe</a>
+        <a href="#menu">Cuisine Highlights</a>
+        <a href="#franchise">Wails Franchise</a>
+        <a href="#beyond">Outsourcing</a>
+        <a href="#partner">Partner</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.svg" alt="Wails Cafe Logo">
+          <p>Young, vibrant, and flavorful. Wails Cafe – a new generation of food culture in Kochi.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#franchise">Franchise</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="#branches">Branches</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p><span class="contact-icon">📍</span> 6th Floor, Imperial Trade Centre, MG Road, Kacheripady, Kochi, Kerala 682035</p>
+          <p><span class="contact-icon">📍</span> 3rd Floor, Yash Square Building, Thottumugham Jn, Aluva, Kochi</p>
+          <p><span class="contact-icon">📞</span> <a href="tel:+919744336243" style="color:inherit;">+91 9744336243</a></p>
+          <p><span class="contact-icon">✉</span> ENQUIRIES@WAILSCAFE.COM</p>
+        </div>
+        <div class="footer-social">
+          <h4>FOLLOW US</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram" id="ig-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/wails.cafe/" target="_blank" rel="noopener" aria-label="Facebook" id="fb-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+          <div class="delivery-widgets">
+            <h4>ORDER ONLINE</h4>
+            <a href="https://www.swiggy.com/city/kochi/wails-cafe-kaloor-mg-road-rest1060793" target="_blank" rel="noopener" class="delivery-btn swiggy-btn" id="footer-swiggy">
+              <svg viewBox="0 0 20 20" width="20" height="20" fill="white"><circle cx="10" cy="10" r="10" fill="#FC8019"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="10" font-weight="bold">S</text></svg>
+              Order on Swiggy
+            </a>
+            <a href="https://www.zomato.com/kochi/wails-cafe-ernakulam-city" target="_blank" rel="noopener" class="delivery-btn zomato-btn" id="footer-zomato">
+              <svg viewBox="0 0 20 20" width="20" height="20" fill="white"><circle cx="10" cy="10" r="10" fill="#E23744"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Z</text></svg>
+              Order on Zomato
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Wails Cafe. All rights reserved. &nbsp;|&nbsp; <a href="terms.html" id="terms-link">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="privacy.html" id="privacy-link">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

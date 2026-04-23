@@ -1,0 +1,36 @@
+assets/*
+*.js
+!script.js
+!assets/
+!assets/eedbc40a2aef36b39568ba06fa0d3801fa7898b5.png
+!assets/fa9d7fa6fc9750ed3940b5cd54e09769f1397997.png
+!assets/e55f7f6347f08f01140284c96587094812941cd2.png
+!assets/e1d6c1c804a5c907b01e26adb9673e56a5d383de.png
+!assets/50bffdc95097d5da24d8753ed9eda9ea0b8a8296.png
+!assets/mobile.png
+!assets/d7dae1294ccfbd13b732ba85ce7d5148ec0a4365.png
+!assets/real barbeque.png
+!assets/logo.svg
+!assets/e63c52b1b37ad6423b4ce78f46e2395f38996508.png
+!assets/0f7ca8f690654a2462bb8c481333e94b230414d1.png
+!assets/wails
+!assets/f57a9bafd21bfbfac7a6a9d70fc653e37e9262b4.png
+!assets/40e328e9cbc4fecdd2e74e251b751ed1c72cb17e.png
+!assets/6793f790712e6b2d1ba628b140165ac178c43623.png
+!assets/f123e1dbc118c6918ec2ec7d0fb3096f7d979734.png
+!assets/barbeque.png
+!assets/loaded fries.png
+!assets/loaded
+!assets/f67ce50319514fb218e4dd5206212a330f81d070.png
+!assets/f5efbe7f8af8a2592524f8726816d2c8fd70b86d.png
+!assets/wails banner web size out.mp4
+!assets/secback.png
+!assets/eaf97598453b652f1b18be4c7af62b8d1712e806.png
+!assets/f6a248e295a8af038854806972d288a1f985f94a.png
+!assets/f75eec43c9005a29b4a7d2fc8c0e862e903956cd.png
+!assets/ricebow.png
+!assets/f2cfb5b4cedff1cc05fc272e72adb5400a63a097.png
+!assets/36791cc1c7db0277a3f8a36fda8b6b2b5441d40d.png
+!assets/burger.png
+figma_node.json
+parsed_figma.txt
