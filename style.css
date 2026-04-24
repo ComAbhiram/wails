@@ -492,14 +492,30 @@ nav {
   justify-content: center;
   align-items: flex-end;
 }
-.offer-shake {
+.offer-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  z-index: 0;
+  opacity: 0.8;
+}
+.shake-container {
   position: absolute;
   bottom: 60px;
-  height: 380px;
-  z-index: 1;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0.9;
+  width: 250px;
+  height: 380px;
+  z-index: 1;
+  border-radius: 125px / 190px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.offer-shake {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .offer-burger-1 {
   position: absolute;
