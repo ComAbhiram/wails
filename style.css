@@ -152,6 +152,7 @@ nav {
   font-weight: 700;
   color: var(--text-white);
   margin-bottom: 2rem;
+  text-align: center;
   text-shadow: 0 4px 30px rgba(0,0,0,0.4);
   animation: heroIn 1.2s cubic-bezier(0.4,0,0.2,1) both;
   position: relative;
