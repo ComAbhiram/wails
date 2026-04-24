@@ -413,7 +413,7 @@ nav {
 .voices-cta { text-align: center; }
 
 /* ── SOCIAL MEDIA ── */
-.social-media { padding: 5rem 0; background: var(--primary-purple); }
+.social-media { padding: 5rem 0; background: var(--primary-purple); overflow-x: hidden; }
 .social-grid {
   display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem; margin: 3rem 0;
@@ -954,9 +954,9 @@ footer { background: var(--deep-purple); position: relative; }
   display: flex; align-items: center; justify-content: center;
   gap: 2.5rem; margin: 3rem 0;
 }
-.phone-mockup-wrap { position: relative; flex-shrink: 0; }
+.phone-mockup-wrap { position: relative; flex-shrink: 0; max-width: 100%; }
 .phone-frame {
-  position: relative; width: 280px;
+  position: relative; width: 280px; max-width: 100%; margin: 0 auto;
   filter: drop-shadow(0 30px 60px rgba(80,41,124,0.5));
 }
 .phone-frame-img { width: 100%; display: block; position: relative; z-index: 2; pointer-events: none; }
