@@ -402,7 +402,7 @@ nav {
 /* ── EVENTS ── */
 .events { padding: 5rem 0; background: var(--primary-purple); }
 .offer-banner {
-  background: linear-gradient(135deg, #a32808 0%, #d85006 100%);
+  background: var(--accent-yellow);
   border-radius: 30px;
   display: flex;
   justify-content: space-between;
@@ -422,12 +422,12 @@ nav {
   font-family: var(--font-heading);
   font-size: 4rem;
   line-height: 1.1;
-  color: white;
+  color: var(--primary-purple);
   text-transform: none;
 }
 .offer-subtitle {
   font-family: var(--font-body);
-  color: white;
+  color: var(--primary-purple);
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 10px;
@@ -446,7 +446,7 @@ nav {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--accent-yellow);
+  color: white;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   line-height: 1;
@@ -455,14 +455,14 @@ nav {
   font-family: var(--font-heading);
   font-size: 7rem;
   font-weight: 900;
-  color: var(--accent-yellow);
+  color: white;
   line-height: 0.8;
 }
 .promo-burgers {
   font-family: var(--font-heading);
   font-size: 3rem;
   font-weight: 900;
-  color: white;
+  color: var(--primary-purple);
   line-height: 1;
   margin-top: 10px;
 }
@@ -470,7 +470,7 @@ nav {
   font-family: var(--font-heading);
   font-size: 3rem;
   font-weight: 900;
-  color: var(--accent-yellow);
+  color: white;
   line-height: 1;
   margin-top: 5px;
 }
@@ -478,11 +478,11 @@ nav {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 800;
-  color: white;
+  color: var(--primary-purple);
   line-height: 1.2;
 }
 .promo-free span {
-  color: var(--accent-yellow);
+  color: white;
 }
 .offer-images {
   position: relative;
