@@ -173,7 +173,7 @@ nav {
 .wave-divider-bottom svg {
   display: block;
   width: 100%;
-  height: 80px;
+  height: 110px;
 }
 
 /* ── ABOUT ── */
@@ -221,9 +221,25 @@ nav {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 4rem; align-items: center;
 }
-.uniquely-text { position: relative; z-index: 10; background: rgba(255,255,255,0.85); padding: 1.5rem; border-radius: 16px; backdrop-filter: blur(8px); }
-.uniquely-text h3 { font-size: clamp(2rem, 4vw, 3.5rem); color: var(--primary-purple); margin-bottom: 1.5rem; }
-.uniquely-text p { font-size: 1rem; color: var(--primary-purple); line-height: 1.6; }
+.uniquely-text { 
+  position: relative; z-index: 10; 
+  background: rgba(255,255,255,0.85); 
+  padding: 2rem; border-radius: 20px; 
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+.uniquely-text h3 { 
+  font-size: clamp(1.8rem, 3vw, 2.8rem); 
+  color: var(--primary-purple); 
+  margin-bottom: 1.2rem; 
+  text-align: center;
+}
+.uniquely-text p { 
+  font-size: 1rem; 
+  color: var(--primary-purple); 
+  line-height: 1.6; 
+  text-align: center;
+}
 .blob-image-container {
   position: relative;
   border-radius: 50% 40% 60% 40%;
@@ -249,10 +265,16 @@ nav {
   position: relative; 
 }
 .section-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--text-white);
+  position: relative;
+  z-index: 10;
+  transform: none !important; 
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .section-subtitle {
   text-align: center;
@@ -288,7 +310,7 @@ nav {
 }
 .menu-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 .category-header, .menu-sub-header {
-  display: flex; align-items: center; gap: 15px;
+  display: flex; align-items: center; justify-content: center; gap: 15px;
   margin-bottom: 1.5rem; margin-top: 2rem;
 }
 .category-header h3, .menu-sub-header h3 {
@@ -376,6 +398,7 @@ nav {
   color: var(--accent-yellow);
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 .form-group {
   display: flex;
@@ -686,7 +709,7 @@ footer { background: var(--deep-purple); position: relative; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; padding-top: 2rem; text-align: center; opacity: 0.6; font-size: 0.85rem; }
 
 /* ── REVEAL ANIMATIONS ── */
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
+.reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 /* ── RESPONSIVE ── */
@@ -1678,31 +1701,12 @@ header { position: fixed; }     /* keep sticky */
    ✨ ENHANCEMENT WAVE 2 – PREMIUM POLISH
 ════════════════════════════════════════════ */
 
-/* ── CUSTOM CURSOR ── */
-*, *::before, *::after { cursor: none !important; }
-
-.cursor-dot {
-  width: 8px; height: 8px;
-  background: var(--accent-yellow);
-  border-radius: 50%;
-  position: fixed; pointer-events: none;
-  top: 0; left: 0; z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease;
+/* ── CUSTOM FOOD CURSOR ── */
+body, a, button, .branch-card, .side-insta-card, .offer-banner, .address-card {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='font-size:24px;'><text y='22'>🍕</text></svg>"), auto !important;
 }
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 2px solid rgba(244,182,44,0.6);
-  border-radius: 50%;
-  position: fixed; pointer-events: none;
-  top: 0; left: 0; z-index: 99998;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
-}
-.cursor-ring.hovered {
-  width: 56px; height: 56px;
-  border-color: var(--accent-yellow);
-  background: rgba(244,182,44,0.08);
+a:hover, button:hover {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='font-size:24px;'><text y='22'>🍕</text></svg>"), pointer !important;
 }
 
 /* ── FLOATING PARTICLE CANVAS ── */
@@ -2072,10 +2076,12 @@ header.scrolled {
 /* ── SMOOTH IMAGE CLIP REVEAL ── */
 .reveal-clip {
   clip-path: inset(0 0 100% 0);
-  transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+  opacity: 0;
 }
 .reveal-clip.active {
   clip-path: inset(0 0 0% 0);
+  opacity: 1;
 }
 
 /* ── PARALLAX FLOATING SHAPES ── */
@@ -2208,15 +2214,18 @@ body::after {
 
 /* ── SECTION HEADING STAGGER ── */
 .section-title {
-  overflow: hidden;
+  overflow: visible;
 }
 .section-title span {
   display: inline-block;
-  transform: translateY(100%);
-  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.8s ease;
+  text-align: center;
 }
 .section-title.active span {
   transform: translateY(0);
+  opacity: 1;
 }
 
 /* ── MENU PRICE GLOW ── */

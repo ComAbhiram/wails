@@ -72,11 +72,14 @@ function initStickyHeader() {
 function initRevealAnimations() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('active');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal, .reveal-clip, .section-title').forEach(el => observer.observe(el));
 }
 
 // Menu Filtering
@@ -391,26 +394,7 @@ document.querySelectorAll('.branch-card').forEach(card => {
    ✨ ENHANCEMENT WAVE 2 – JS
 ════════════════════════════════════════════ */
 
-/* ── CUSTOM CURSOR ── */
-(function() {
-  const dot  = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  if (!dot || !ring) return;
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-  });
-  (function moveRing() {
-    rx += (mx - rx) * 0.25; ry += (my - ry) * 0.25;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(moveRing);
-  })();
-  document.querySelectorAll('a, button, .branch-card, .side-insta-card, .offer-banner, .address-card').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
-  });
-})();
+
 
 /* ── PARTICLE CANVAS ── */
 (function() {
@@ -524,17 +508,6 @@ window.addEventListener('scroll', () => {
     el.style.transform = `translateY(${scrolled * speed * 0.05}px)`;
   });
 }, { passive: true });
-
-/* ── CLIP PATH REVEAL ── */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active');
-    }
-  });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.reveal-clip').forEach(el => revealObserver.observe(el));
 
 /* ── REVEAL HERO STATS ── */
 setTimeout(() => {
