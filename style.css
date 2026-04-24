@@ -1164,3 +1164,5 @@ section { padding: 4rem 0; }
 /* 10. Social-media-yellow section title colour fix */
 .social-media-yellow .section-title,
 .social-media-yellow .section-subtitle { color: var(--primary-purple) !important; }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }

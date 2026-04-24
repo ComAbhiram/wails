@@ -232,14 +232,20 @@ function initPhoneCarousel() {
 // Franchise Form AJAX Submission
 function initFranchiseForm() {
   const form = document.getElementById('franchise-application-form');
+  const successMsg = document.getElementById('form-success-msg');
   if (!form) return;
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = form.querySelector('.form-submit');
-    const originalText = btn.textContent;
-    btn.textContent = 'Sending...';
+    const btnText = btn.querySelector('.btn-text');
+    const spinner = btn.querySelector('.btn-spinner');
+    
+    // UI Loading state
     btn.disabled = true;
+    if (btnText) btnText.textContent = 'Sending...';
+    if (spinner) spinner.style.display = 'block';
+    if (successMsg) successMsg.style.display = 'none';
 
     const formData = new FormData(form);
     
@@ -252,18 +258,43 @@ function initFranchiseForm() {
     })
     .then(response => {
       if (response.ok) {
-        alert("Thanks! Your application has been submitted successfully. We'll be in touch soon.");
+        if (successMsg) {
+          successMsg.innerHTML = "<strong>Thanks!</strong> Your application has been submitted successfully. We'll be in touch soon.";
+          successMsg.style.color = "#2ed573";
+          successMsg.style.borderColor = "#2ed573";
+          successMsg.style.backgroundColor = "rgba(46, 213, 115, 0.1)";
+          successMsg.style.display = 'block';
+        }
         form.reset();
       } else {
-        alert("Oops! There was a problem submitting your form. Please try again.");
+        if (successMsg) {
+          successMsg.innerHTML = "<strong>Oops!</strong> There was a problem submitting your form. Please try again.";
+          successMsg.style.color = "#ff4757";
+          successMsg.style.borderColor = "#ff4757";
+          successMsg.style.backgroundColor = "rgba(255, 71, 87, 0.1)";
+          successMsg.style.display = 'block';
+        }
       }
     })
     .catch(error => {
-      alert("Oops! There was a problem submitting your form. Please try again.");
+        if (successMsg) {
+          successMsg.innerHTML = "<strong>Oops!</strong> There was a problem submitting your form. Please try again.";
+          successMsg.style.color = "#ff4757";
+          successMsg.style.borderColor = "#ff4757";
+          successMsg.style.backgroundColor = "rgba(255, 71, 87, 0.1)";
+          successMsg.style.display = 'block';
+        }
     })
     .finally(() => {
-      btn.textContent = originalText;
       btn.disabled = false;
+      if (btnText) btnText.textContent = 'Submit Application';
+      if (spinner) spinner.style.display = 'none';
+      
+      if (successMsg && successMsg.style.color === "rgb(46, 213, 115)") {
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 8000);
+      }
     });
   });
 }
