@@ -157,11 +157,11 @@ nav {
 @keyframes heroIn { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
 
 
-.wave-divider-hero {
+.wave-divider-bottom {
   position: absolute; bottom: -2px; left: 0; width: 100%; line-height: 0;
   z-index: 3;
 }
-.wave-divider-hero svg { width: 100%; height: auto; display: block; }
+.wave-divider-bottom svg { width: 100%; height: auto; display: block; }
 
 /* ── ABOUT ── */
 .about {
