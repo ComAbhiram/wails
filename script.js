@@ -228,3 +228,43 @@ function initPhoneCarousel() {
   }, { threshold: 0.2 });
   titles.forEach(t => io.observe(t));
 })();
+
+// Franchise Form AJAX Submission
+function initFranchiseForm() {
+  const form = document.getElementById('franchise-application-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const formData = new FormData(form);
+    
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("Thanks! Your application has been submitted successfully. We'll be in touch soon.");
+        form.reset();
+      } else {
+        alert("Oops! There was a problem submitting your form. Please try again.");
+      }
+    })
+    .catch(error => {
+      alert("Oops! There was a problem submitting your form. Please try again.");
+    })
+    .finally(() => {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
+  });
+}
+initFranchiseForm();
