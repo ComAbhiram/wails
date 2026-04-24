@@ -325,3 +325,64 @@ function initFranchiseForm() {
   });
 }
 initFranchiseForm();
+
+/* ── SCROLL TO TOP BUTTON ── */
+const scrollTopBtn = document.getElementById('scroll-top-btn');
+if (scrollTopBtn) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }, { passive: true });
+}
+
+/* ── ACTIVE NAV LINK DETECTION ── */
+(function() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links li a');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(section => observer.observe(section));
+})();
+
+/* ── OFFER BANNER – tilt effect on mouse move ── */
+const offerBanner = document.querySelector('.offer-banner');
+if (offerBanner) {
+  offerBanner.addEventListener('mousemove', (e) => {
+    const rect = offerBanner.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 6;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -6;
+    offerBanner.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg)`;
+  });
+  offerBanner.addEventListener('mouseleave', () => {
+    offerBanner.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+  });
+}
+
+/* ── BRANCH CARDS – subtle tilt ── */
+document.querySelectorAll('.branch-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -8;
+    card.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${y}deg) translateY(-10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+  });
+});

@@ -1260,3 +1260,416 @@ header { position: fixed; }     /* keep sticky */
 ═══════════════════════════════════════════ */
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
+
+/* ═══════════════════════════════════════════
+   ✨ GLOBAL ENHANCEMENTS
+═══════════════════════════════════════════ */
+
+/* Smooth selection color */
+::selection { background: var(--accent-yellow); color: var(--deep-purple); }
+
+/* Subtle glowing focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-yellow);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Section titles – accent underline */
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.4em;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 60px; height: 4px;
+  background: var(--accent-yellow);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.section-title:hover::after { width: 100%; }
+
+/* ── HERO ENHANCEMENTS ── */
+/* Scroll-down bounce indicator */
+.hero::after {
+  content: '↓';
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.6);
+  font-size: 1.8rem;
+  animation: scrollBounce 2s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+  50% { transform: translateX(-50%) translateY(10px); opacity: 1; }
+}
+
+/* Hero title – yellow gradient highlight on CRAVINGS */
+.hero-title {
+  background: linear-gradient(135deg, #fff 60%, var(--accent-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── NAV ENHANCEMENTS ── */
+/* Active nav pill glow */
+.nav-links li a.active {
+  background: var(--accent-yellow) !important;
+  color: var(--primary-purple) !important;
+  box-shadow: 0 0 14px rgba(244,182,44,0.5);
+}
+
+/* Logo subtle pulse on hover */
+.logo-container img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.logo-container img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  filter: drop-shadow(0 6px 20px rgba(244,182,44,0.6));
+}
+
+/* ── ABOUT ENHANCEMENTS ── */
+/* Quote-style paragraph */
+.about-content > p:first-of-type {
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--primary-purple);
+  opacity: 0.85;
+  border-left: 4px solid var(--primary-purple);
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Blob image – pulsing glow ring */
+.blob-image-container::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+  border: 3px solid rgba(80,41,124,0.35);
+  animation: blobPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes blobPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+/* ── FOOD MENU ENHANCEMENTS ── */
+/* Tab hover glow */
+.tab-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(244,182,44,0.08);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+.tab-btn:hover::after { opacity: 1; }
+
+/* Menu image – zoom glow on hover */
+.menu-visual img {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.menu-visual img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+}
+
+/* Menu item rows – subtle slide-in */
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* ── BEYOND WAILS ENHANCEMENTS ── */
+/* Image stagger shimmer on hover */
+.beyond-img-1, .beyond-img-2 {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.beyond-img-1:hover, .beyond-img-2:hover {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+/* Bullet list star icon glow */
+.bullet-star {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  text-shadow: 0 0 10px rgba(191,135,255,0.7);
+}
+.beyond-list li:hover .bullet-star {
+  transform: scale(1.4) rotate(20deg);
+}
+
+/* ── FRANCHISE ENHANCEMENTS ── */
+/* Franchise card shimmer border */
+.franchise-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.franchise-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(244,182,44,0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+.franchise-card:hover::before { opacity: 1; }
+
+/* Form inputs – glowing focus */
+.form-control:focus {
+  box-shadow: 0 0 0 3px rgba(244,182,44,0.25), 0 0 20px rgba(244,182,44,0.1);
+}
+
+/* Submit button pulse */
+.form-submit {
+  position: relative;
+  overflow: hidden;
+}
+.form-submit::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.form-submit:hover::after { opacity: 1; }
+
+/* ── OFFERS SECTION ENHANCEMENTS ── */
+/* Banner – shimmer sweep animation */
+.offer-banner {
+  background: linear-gradient(135deg, #F4B62C 70%, #ffe080);
+  position: relative;
+  overflow: hidden;
+}
+.offer-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -60%;
+  width: 50%; height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  animation: shimmerSweep 3.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes shimmerSweep {
+  0% { left: -60%; opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { left: 120%; opacity: 0; }
+}
+
+/* Burger images – gentle float */
+.offer-burger-1 {
+  animation: floatA 4s ease-in-out infinite;
+}
+.offer-burger-2 {
+  animation: floatB 5s ease-in-out infinite 0.8s;
+}
+
+/* Shake float */
+.offer-shake {
+  animation: floatC 4.5s ease-in-out infinite 0.3s;
+}
+
+/* ── BRANCHES ENHANCEMENTS ── */
+/* Branch card – stronger hover lift */
+.branch-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.branch-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+}
+
+/* Branch overlay – slide-up on hover */
+.branch-overlay {
+  transition: background 0.4s ease;
+}
+.branch-card:hover .branch-overlay {
+  background: linear-gradient(to top, rgba(42,18,65,0.95) 0%, rgba(42,18,65,0.3) 80%, transparent 100%);
+}
+
+/* Branch tag – glow badge */
+.branch-tag {
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.branch-card:hover .branch-tag {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* ── SOCIAL MEDIA ENHANCEMENTS ── */
+/* Phone frame – drop shadow glow */
+.phone-frame {
+  filter: drop-shadow(0 20px 50px rgba(80,41,124,0.4));
+  transition: filter 0.4s ease;
+}
+.phone-frame:hover {
+  filter: drop-shadow(0 30px 70px rgba(80,41,124,0.6));
+}
+
+/* Side insta cards – border glow on hover */
+.side-insta-card {
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.side-insta-card:hover {
+  border-color: var(--accent-yellow);
+  box-shadow: 0 12px 35px rgba(244,182,44,0.3);
+}
+
+/* Social section title wrap */
+.social-media .section-title::after {
+  background: var(--primary-purple);
+}
+
+/* ── CONTACT ENHANCEMENTS ── */
+/* Address cards – left accent bar */
+.address-card {
+  border-left: 4px solid transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+.address-card:hover {
+  border-left-color: var(--accent-yellow);
+  transform: translateX(6px);
+}
+
+/* Map border glow on hover */
+.contact-map {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.contact-map:hover {
+  border-color: rgba(244,182,44,0.7);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 30px rgba(244,182,44,0.15);
+}
+
+/* ── FOOTER ENHANCEMENTS ── */
+/* Footer brand image hover */
+.footer-brand img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.footer-brand img:hover {
+  transform: scale(1.05) rotate(-2deg);
+  filter: drop-shadow(0 6px 20px rgba(244,182,44,0.5));
+}
+
+/* Footer links – animated underline */
+.footer-links a {
+  position: relative;
+  padding-bottom: 2px;
+}
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent-yellow);
+  transition: width 0.3s ease;
+}
+.footer-links a:hover::after { width: 100%; }
+
+/* Social icons – scale + glow */
+.social-icons a {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  background: rgba(244,182,44,0.15);
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 18px rgba(244,182,44,0.3);
+  transform: translateY(-4px);
+}
+
+/* Delivery button shine */
+.delivery-btn {
+  position: relative;
+  overflow: hidden;
+}
+.delivery-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+.delivery-btn:hover::after { left: 150%; }
+
+/* Footer bottom border glow */
+.footer-bottom {
+  border-top: 1px solid rgba(244,182,44,0.2);
+}
+
+/* ── SCROLL-TO-TOP BUTTON ── */
+#scroll-top-btn {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--accent-yellow);
+  color: var(--primary-purple);
+  font-size: 1.4rem;
+  font-weight: 700;
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 25px rgba(244,182,44,0.5);
+  opacity: 0; pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 998;
+}
+#scroll-top-btn.visible {
+  opacity: 1; pointer-events: all; transform: translateY(0);
+}
+#scroll-top-btn:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 14px 35px rgba(244,182,44,0.65);
+}
+
+/* ── BEYOND SECTION image glow ring ── */
+.beyond-img-1, .beyond-img-2 {
+  box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+}
+
+/* ── REVEALS – stagger children ── */
+.franchise-grid .reveal:nth-child(2) { transition-delay: 0.12s; }
+.branches-grid .branch-card:nth-child(2) { transition-delay: 0.1s; }
+.branches-grid .branch-card:nth-child(3) { transition-delay: 0.2s; }
+
+/* ── MOBILE TWEAKS ── */
+@media (max-width: 768px) {
+  .hero::after { display: none; }
+  .hero-title { -webkit-text-fill-color: white; background: none; }
+  .address-card:hover { transform: none; }
+}
