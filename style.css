@@ -1673,3 +1673,591 @@ header { position: fixed; }     /* keep sticky */
   .hero-title { -webkit-text-fill-color: white; background: none; }
   .address-card:hover { transform: none; }
 }
+
+/* ════════════════════════════════════════════
+   ✨ ENHANCEMENT WAVE 2 – PREMIUM POLISH
+════════════════════════════════════════════ */
+
+/* ── CUSTOM CURSOR ── */
+*, *::before, *::after { cursor: none !important; }
+
+.cursor-dot {
+  width: 8px; height: 8px;
+  background: var(--accent-yellow);
+  border-radius: 50%;
+  position: fixed; pointer-events: none;
+  top: 0; left: 0; z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 2px solid rgba(244,182,44,0.6);
+  border-radius: 50%;
+  position: fixed; pointer-events: none;
+  top: 0; left: 0; z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+.cursor-ring.hovered {
+  width: 56px; height: 56px;
+  border-color: var(--accent-yellow);
+  background: rgba(244,182,44,0.08);
+}
+
+/* ── FLOATING PARTICLE CANVAS ── */
+#particle-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+/* ── HERO – IMPROVED SUBTITLE + COUNTER STATS ── */
+.hero-stats {
+  display: flex; gap: 3rem;
+  justify-content: center;
+  margin-top: 3rem;
+  position: relative; z-index: 5;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  min-width: 120px;
+}
+.hero-stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem; font-weight: 700;
+  color: var(--accent-yellow);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.3rem;
+}
+
+/* ── ANIMATED GRADIENT BG – BEYOND WAILS ── */
+.beyond-wails {
+  background: linear-gradient(135deg, #2A1241 0%, #1a0930 50%, #2A1241 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ── GLASSMORPHISM FRANCHISE FORM ── */
+.franchise-form {
+  background: rgba(80, 41, 124, 0.4) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244,182,44,0.25) !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Franchise card – gradient border shimmer */
+.franchise-card {
+  background: var(--deep-purple) !important;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 1px rgba(244,182,44,0.15);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.franchise-card:hover {
+  box-shadow: 0 0 0 2px var(--accent-yellow), 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* ── MENU ITEM ROWS – hover highlight ── */
+.menu-item {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.menu-item:hover {
+  background: rgba(244,182,44,0.1);
+  transform: translateX(6px);
+}
+
+/* ── SECTION BACKGROUNDS – subtle dot texture ── */
+.food-menu::before,
+.franchise::before,
+.branches::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+.food-menu > *, .franchise > *, .branches > * {
+  position: relative; z-index: 1;
+}
+
+/* ── RIPPLE BUTTON EFFECT ── */
+.btn, .tab-btn, .hero-cta-btn, .nav-phone, .popup-platform, .delivery-btn {
+  overflow: hidden;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleAnim 0.6s linear;
+  background: rgba(255,255,255,0.25);
+  pointer-events: none;
+  z-index: 10;
+}
+@keyframes rippleAnim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ── ABOUT SECTION – number badges ── */
+.about-badges {
+  display: flex; gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.about-badge {
+  background: var(--primary-purple);
+  border-radius: 20px;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(80,41,124,0.3);
+  min-width: 140px;
+}
+.about-badge-num {
+  font-family: var(--font-heading);
+  font-size: 2.5rem; font-weight: 700;
+  color: var(--text-white);
+  display: block; line-height: 1;
+}
+.about-badge-text {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+}
+
+/* ── OFFER BANNER – 3D depth text shadow ── */
+.offer-title {
+  text-shadow: 4px 4px 0 rgba(80,41,124,0.35), 8px 8px 20px rgba(0,0,0,0.2);
+  letter-spacing: -0.02em;
+}
+.buy-number {
+  text-shadow: 6px 6px 0 rgba(80,41,124,0.4), 10px 10px 25px rgba(0,0,0,0.25);
+}
+
+/* ── BRANCHES – gradient card overlays ── */
+.branch-card::before {
+  content: '';
+  position: absolute;
+  inset: 0; z-index: 1;
+  background: linear-gradient(160deg, rgba(244,182,44,0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.branch-card:hover::before { opacity: 1; }
+
+/* ── SOCIAL MEDIA – pulsing gradient bg ── */
+.social-media-yellow {
+  position: relative; overflow: hidden;
+}
+.social-media-yellow::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(244,182,44,0.5) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -200px; right: -200px;
+  animation: pulseOrb 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.social-media-yellow::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(80,41,124,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  bottom: -100px; left: -100px;
+  animation: pulseOrb 8s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes pulseOrb {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+.social-media-yellow .container { position: relative; z-index: 1; }
+
+/* ── CONTACT SECTION – neon address icons ── */
+.address-icon {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: inline-block;
+}
+.address-card:hover .address-icon {
+  transform: scale(1.3) rotate(-5deg);
+  filter: drop-shadow(0 0 8px rgba(244,182,44,0.7));
+}
+
+/* ── FOOTER – gradient text for brand ── */
+.footer-brand p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  max-width: 280px;
+}
+
+/* Footer wave glow */
+.footer-wave-top svg {
+  filter: drop-shadow(0 -4px 12px rgba(244,182,44,0.2));
+}
+
+/* ── SECTION TITLE – reveal shimmer animation ── */
+@keyframes titleReveal {
+  from { opacity: 0; transform: translateY(30px) skewY(3deg); }
+  to   { opacity: 1; transform: translateY(0) skewY(0deg); }
+}
+.anim-title.active {
+  animation: titleReveal 0.9s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* ── TAB BUTTONS – pill style upgrade ── */
+.menu-tabs {
+  background: rgba(255,255,255,0.05);
+  border-radius: 50px;
+  padding: 6px;
+  display: inline-flex;
+  gap: 4px;
+  margin: 0 auto 4rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.tab-btn {
+  border-radius: 40px !important;
+  padding: 10px 24px;
+  font-size: 0.82rem;
+}
+.tab-btn.active {
+  box-shadow: 0 4px 15px rgba(244,182,44,0.4);
+}
+
+/* ── NAV – glow transition on scroll ── */
+header.scrolled {
+  border-bottom: 1px solid rgba(244,182,44,0.15);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 1px 0 rgba(244,182,44,0.1);
+}
+
+/* ── GLOBAL – card glass hover ── */
+.address-card, .franchise-card, .order-popup-box {
+  backdrop-filter: blur(4px);
+}
+
+/* ── HERO CTA – gradient animated border ── */
+.hero-cta-btn {
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+.hero-cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, var(--accent-yellow), #fff, var(--accent-yellow));
+  background-size: 200%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: borderRot 2.5s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.hero-cta-btn:hover::before { opacity: 1; }
+@keyframes borderRot {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ── MENU VISUAL – glowing frame ── */
+.menu-visual img {
+  border: 3px solid rgba(244,182,44,0.2);
+  transition: border-color 0.4s ease, transform 0.5s ease, box-shadow 0.5s ease;
+}
+.menu-visual img:hover {
+  border-color: rgba(244,182,44,0.6);
+}
+
+/* ── BEYOND TEXT – headline gradient ── */
+.beyond-text h2 {
+  background: linear-gradient(135deg, #fff 50%, var(--accent-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── INPUT LABEL FLOAT ── */
+.form-group { position: relative; }
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+  transition: color 0.3s ease;
+}
+.form-group:focus-within label {
+  color: var(--accent-yellow);
+}
+
+/* ── POPUP – animated gradient border ── */
+.order-popup-box {
+  background: linear-gradient(145deg, #2A1241, #3a1a55);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(244,182,44,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* ── FOOTER BOTTOM – subtle gradient ── */
+.footer-main {
+  background: linear-gradient(180deg, var(--deep-purple) 0%, #1e0a35 100%);
+}
+
+/* ── MOBILE OVERRIDES ── */
+@media (max-width: 768px) {
+  .hero-stats { gap: 1rem; }
+  .hero-stat { padding: 0.8rem 1.2rem; min-width: 90px; }
+  .hero-stat-number { font-size: 1.6rem; }
+  .about-badges { gap: 1rem; }
+  .about-badge { min-width: 110px; padding: 1rem 1.2rem; }
+  .cursor-dot, .cursor-ring { display: none; }
+  *, *::before, *::after { cursor: auto !important; }
+}
+
+/* ════════════════════════════════════════════
+   ✨ ENHANCEMENT WAVE 3 – NEXT-GEN INTERACTIVE
+════════════════════════════════════════════ */
+
+/* ── PAGE PROGRESS BAR ── */
+.progress-container {
+  position: fixed; top: 0; left: 0; width: 100%; height: 4px;
+  z-index: 1001; pointer-events: none;
+}
+.progress-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--accent-yellow), #fff);
+  box-shadow: 0 0 10px rgba(244,182,44,0.8);
+}
+
+/* ── MAGNETIC BUTTON WRAPPER ── */
+.magnetic-wrap {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ── SMOOTH IMAGE CLIP REVEAL ── */
+.reveal-clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.reveal-clip.active {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* ── PARALLAX FLOATING SHAPES ── */
+.parallax-shape {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ── MENU ITEM ENHANCED HOVER ── */
+.menu-item {
+  position: relative;
+  z-index: 1;
+}
+.menu-item::before {
+  content: '';
+  position: absolute;
+  inset: -5px -10px;
+  background: linear-gradient(90deg, rgba(244,182,44,0.15), transparent);
+  border-radius: 8px;
+  opacity: 0;
+  transform: scaleX(0.8);
+  transform-origin: left;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: -1;
+}
+.menu-item:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* ── INTERACTIVE 3D TILT ON CARDS ── */
+.address-card, .franchise-card {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+}
+
+/* ── TEXT GLOW EFFECT ── */
+.glow-text {
+  text-shadow: 0 0 15px rgba(244,182,44,0.4);
+}
+
+/* ── HERO SUBTITLE TYPING ── */
+.hero-stats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+.hero-stats.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── FOOTER SOCIAL HOVER ── */
+.social-icons a i {
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.social-icons a:hover i {
+  transform: scale(1.3) rotate(15deg);
+}
+
+/* ── MOBILE OPTIMIZATIONS ── */
+@media (max-width: 768px) {
+  .magnetic-wrap { transform: none !important; }
+  .parallax-shape { transform: none !important; }
+}
+
+/* ════════════════════════════════════════════
+   💎 ULTRA POLISH – FINAL PREMIUM TOUCHES
+════════════════════════════════════════════ */
+
+/* ── NOISE GRAIN OVERLAY ── */
+body::after {
+  content: '';
+  position: fixed;
+  top: -100%; left: -100%;
+  width: 300%; height: 300%;
+  background: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 9999;
+  animation: noise 2s steps(10) infinite;
+}
+@keyframes noise {
+  0% { transform: translate(0,0); }
+  10% { transform: translate(-5%,-5%); }
+  20% { transform: translate(-10%,5%); }
+  30% { transform: translate(5%,-10%); }
+  40% { transform: translate(-5%,15%); }
+  50% { transform: translate(-10%,5%); }
+  60% { transform: translate(15%,0); }
+  70% { transform: translate(0,10%); }
+  80% { transform: translate(-15%,0); }
+  90% { transform: translate(10%,5%); }
+  100% { transform: translate(5%,0); }
+}
+
+/* ── CUSTOM SCROLLBAR ── */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--deep-purple);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-yellow), #f39c12);
+  border-radius: 10px;
+  border: 2px solid var(--deep-purple);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+/* ── GLASS NAV PILL REFINEMENT ── */
+.nav-links {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.nav-links li a {
+  padding: 8px 16px;
+  border-radius: 30px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.nav-links li a:hover {
+  background: rgba(244, 182, 44, 0.15);
+  color: var(--accent-yellow);
+}
+
+/* ── SECTION HEADING STAGGER ── */
+.section-title {
+  overflow: hidden;
+}
+.section-title span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.section-title.active span {
+  transform: translateY(0);
+}
+
+/* ── MENU PRICE GLOW ── */
+.price {
+  position: relative;
+  transition: text-shadow 0.3s ease;
+}
+.menu-item:hover .price {
+  text-shadow: 0 0 10px var(--accent-yellow);
+}
+
+/* ── BUTTON SHINE SWEEP ── */
+.btn-dive, .hero-cta-btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn-dive::before, .hero-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+.btn-dive:hover::before, .hero-cta-btn:hover::before {
+  left: 125%;
+}
+
+/* ── DYNAMIC BACKGROUND BLURS ── */
+.blur-blob {
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(244,182,44,0.1) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+  animation: floatBlur 15s infinite alternate;
+}
+@keyframes floatBlur {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(100px, 50px) scale(1.2); }
+}
+

@@ -386,3 +386,168 @@ document.querySelectorAll('.branch-card').forEach(card => {
     card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
   });
 });
+
+/* ════════════════════════════════════════════
+   ✨ ENHANCEMENT WAVE 2 – JS
+════════════════════════════════════════════ */
+
+/* ── CUSTOM CURSOR ── */
+(function() {
+  const dot  = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  });
+  (function moveRing() {
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(moveRing);
+  })();
+  document.querySelectorAll('a, button, .branch-card, .side-insta-card, .offer-banner, .address-card').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+  });
+})();
+
+/* ── PARTICLE CANVAS ── */
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  const COLORS = ['rgba(244,182,44,0.5)', 'rgba(191,135,255,0.4)', 'rgba(255,255,255,0.3)'];
+  function Particle() { this.reset(); }
+  Particle.prototype.reset = function() {
+    this.x = Math.random() * W; this.y = Math.random() * H;
+    this.r = Math.random() * 2.5 + 0.5;
+    this.vx = (Math.random() - 0.5) * 0.4; this.vy = (Math.random() - 0.5) * 0.4;
+    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    this.alpha = Math.random() * 0.6 + 0.2;
+  };
+  Particle.prototype.update = function() {
+    this.x += this.vx; this.y += this.vy;
+    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+  };
+  Particle.prototype.draw = function() {
+    ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = this.color; ctx.globalAlpha = this.alpha; ctx.fill();
+  };
+  for (let i = 0; i < 80; i++) particles.push(new Particle());
+  (function loop() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    ctx.globalAlpha = 1; requestAnimationFrame(loop);
+  })();
+})();
+
+/* ── RIPPLE EFFECT ── */
+document.querySelectorAll('.btn, .tab-btn, .hero-cta-btn, .nav-phone, .delivery-btn').forEach(el => {
+  el.style.position = 'relative';
+  el.addEventListener('click', function(e) {
+    const rect = el.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    const size = Math.max(rect.width, rect.height);
+    ripple.classList.add('ripple');
+    ripple.style.cssText = `position:absolute;border-radius:50%;transform:scale(0);animation:rippleAnim 0.6s linear;background:rgba(255,255,255,0.25);pointer-events:none;z-index:10;width:${size}px;height:${size}px;left:${e.clientX - rect.left - size/2}px;top:${e.clientY - rect.top - size/2}px;`;
+    el.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
+});
+
+/* ── COUNTER ANIMATION ── */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.count, 10);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+  (function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(ease * target).toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  })(start);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.animated) {
+      entry.target.dataset.animated = 'true';
+      animateCounter(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+/* ════════════════════════════════════════════
+   ✨ ENHANCEMENT WAVE 3 – JS
+════════════════════════════════════════════ */
+
+/* ── PAGE PROGRESS BAR ── */
+(function() {
+  const bar = document.getElementById('progress-bar');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    bar.style.width = scrolled + "%";
+  }, { passive: true });
+})();
+
+/* ── MAGNETIC BUTTONS ── */
+document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
+  const btn = wrap.querySelector('button, a');
+  wrap.addEventListener('mousemove', e => {
+    const rect = wrap.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    wrap.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    if (btn) btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+  });
+  wrap.addEventListener('mouseleave', () => {
+    wrap.style.transform = '';
+    if (btn) btn.style.transform = '';
+  });
+});
+
+/* ── PARALLAX SHAPES ── */
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  document.querySelectorAll('.parallax-shape').forEach(el => {
+    const speed = el.dataset.speed || 2;
+    el.style.transform = `translateY(${scrolled * speed * 0.05}px)`;
+  });
+}, { passive: true });
+
+/* ── CLIP PATH REVEAL ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.reveal-clip').forEach(el => revealObserver.observe(el));
+
+/* ── REVEAL HERO STATS ── */
+setTimeout(() => {
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) heroStats.classList.add('active');
+}, 800);
+
+/* ── DYNAMIC HEADER SCROLL ── */
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+}, { passive: true });

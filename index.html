@@ -14,6 +14,16 @@
 </head>
 <body>
 
+<!-- PAGE PROGRESS BAR -->
+<div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- PARTICLE CANVAS -->
+<canvas id="particle-canvas"></canvas>
+
 <!-- PAGE LOADER -->
 <div id="page-loader" class="page-loader">
   <div class="loader-inner">
@@ -85,7 +95,23 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title anim-title">CURATED FOR<br>CRAVINGS</h1>
-    <button class="hero-cta-btn" id="hero-order-btn" aria-label="Order Now">GET YOUR BITE</button>
+    <div class="magnetic-wrap">
+      <button class="hero-cta-btn" id="hero-order-btn" aria-label="Order Now">GET YOUR BITE</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="2">0</div>
+        <div class="hero-stat-label">Locations</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="50">0</div>
+        <div class="hero-stat-label">Menu Items</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="5000" data-suffix="+">0</div>
+        <div class="hero-stat-label">Happy Guests</div>
+      </div>
+    </div>
   </div>
   <div class="wave-divider-bottom">
     <svg viewBox="0 0 1920 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -96,16 +122,36 @@
 
 <!-- ABOUT -->
 <section class="about" id="about">
+  <div class="blur-blob" style="top: 10%; left: 10%;"></div>
+  <div class="blur-blob" style="bottom: 10%; right: 10%;"></div>
 
   <!-- floating food shapes -->
-  <img src="assets/fa9d7fa6fc9750ed3940b5cd54e09769f1397997.png" alt="" class="about-float-shape about-float-left" aria-hidden="true">
-  <img src="assets/f123e1dbc118c6918ec2ec7d0fb3096f7d979734.png" alt="" class="about-float-shape about-float-right" aria-hidden="true">
+  <img src="assets/fa9d7fa6fc9750ed3940b5cd54e09769f1397997.png" alt="" class="about-float-shape about-float-left parallax-shape" data-speed="2" aria-hidden="true">
+  <img src="assets/f123e1dbc118c6918ec2ec7d0fb3096f7d979734.png" alt="" class="about-float-shape about-float-right parallax-shape" data-speed="-2" aria-hidden="true">
   <div class="about-inner">
     <div class="about-content reveal">
-      <h2>ABOUT WAILS</h2>
+      <h2 class="section-title reveal"><span>ABOUT WAILS</span></h2>
       <p>Taste is never silent at Wails.</p>
       <p>Wails Cafe represents a new generation of food culture: young, vibrant, and flavorful. We bring the urban taste to the table with our rooftop cafe experience in Kochi. Our cuisine combines creative ideas with beloved classics, freshly prepared, carefully selected, and perfectly curated to the tastes of the city. Our goal is simple: delicious food that sticks in your mind and in your heart. Every dish at Wails is made with love and made for people who appreciate something special in everyday life.</p>
       <a href="tel:+919744336243" class="btn btn-dive">CONTACT</a>
+      <div class="about-badges">
+        <div class="about-badge">
+          <span class="about-badge-num" data-count="2">0</span>
+          <span class="about-badge-text">Locations</span>
+        </div>
+        <div class="about-badge">
+          <span class="about-badge-num" data-count="50">0</span>
+          <span class="about-badge-text">Menu Items</span>
+        </div>
+        <div class="about-badge">
+          <span class="about-badge-num" data-count="5000" data-suffix="+">0</span>
+          <span class="about-badge-text">Happy Guests</span>
+        </div>
+        <div class="about-badge">
+          <span class="about-badge-num" data-count="100" data-suffix="%">0</span>
+          <span class="about-badge-text">Made With Love</span>
+        </div>
+      </div>
     </div>
   </div>
   <div class="uniquely-wails reveal">
@@ -114,7 +160,7 @@
         <h3>UNIQUELY WAILS</h3>
         <p>Something different is always on the menu at Wails. We're young, bold, and unapologetically delicious.</p>
       </div>
-      <div class="blob-image-container">
+      <div class="blob-image-container reveal reveal-clip">
         <img src="assets/f75eec43c9005a29b4a7d2fc8c0e862e903956cd.png" alt="Wails Team">
       </div>
     </div>
@@ -129,7 +175,7 @@
 <!-- FOOD MENU -->
 <section class="food-menu" id="menu">
   <div class="container">
-    <h2 class="section-title reveal anim-title">Food Menu</h2>
+    <h2 class="section-title reveal anim-title"><span>Food Menu</span></h2>
     <div class="menu-tabs reveal">
       <button class="tab-btn active" data-category="drinks" id="tab-drinks">Drinks</button>
       <button class="tab-btn" data-category="fried_chicken" id="tab-fried_chicken">Fried Chicken</button>
@@ -147,7 +193,7 @@
         </div>
         <div class="menu-items" id="menu-items" style="transition: opacity 0.3s, transform 0.3s;"></div>
       </div>
-      <div class="menu-visual reveal">
+      <div class="menu-visual reveal reveal-clip">
         <img src="assets/40e328e9cbc4fecdd2e74e251b751ed1c72cb17e.png" alt="Menu Food" id="menu-category-img">
       </div>
     </div>
@@ -161,6 +207,7 @@
 
 <!-- BEYOND WAILS -->
 <section class="beyond-wails" id="beyond">
+  <div class="blur-blob" style="top: 20%; left: 50%;"></div>
   <div class="container">
     <div class="beyond-layout reveal">
       <div class="beyond-images">
@@ -168,7 +215,7 @@
         <img src="assets/1.jpeg" alt="Wails Team" class="beyond-img-2" style="object-fit: cover; border-radius: 20px;">
       </div>
       <div class="beyond-text">
-        <h2>WAILS BEYOND WALLS,<br>CATERING & EVENTS</h2>
+        <h2 class="section-title reveal"><span>WAILS BEYOND WALLS,<br>CATERING & EVENTS</span></h2>
         <p>Bring the bold, delicious flavors of Wails Cafe to your next special occasion! Whether you're hosting a birthday party, corporate gathering, or simply need an outsourced custom menu for your event, we've got you covered. We work closely with you to design a personalized menu that fits your vibe and leaves your guests craving more.</p>
         <ul class="beyond-list">
           <li><span class="bullet-star">★</span> Customized menus tailored to your exact needs</li>
@@ -190,7 +237,7 @@
 <!-- FRANCHISE -->
 <section class="franchise" id="franchise">
   <div class="container">
-    <h2 class="section-title reveal anim-title">OWN A WAILS FRANCHISE</h2>
+    <h2 class="section-title reveal anim-title"><span>OWN A WAILS FRANCHISE</span></h2>
     <div class="franchise-grid reveal">
       <!-- Left side: Benefits Card -->
       <div class="franchise-card" style="height: 100%; display: flex; flex-direction: column;">
@@ -253,7 +300,7 @@
 <!-- OFFERS MENU -->
 <section class="events" id="offers">
   <div class="container">
-    <h2 class="section-title reveal anim-title">Offers</h2>
+    <h2 class="section-title reveal anim-title"><span>Offers</span></h2>
     <div class="offer-banner reveal">
       <div class="offer-banner-content">
         <div class="offer-header">
@@ -292,7 +339,7 @@
 <!-- BRANCHES -->
 <section class="branches" id="branches">
   <div class="container">
-    <h2 class="section-title reveal anim-title">OUR BRANCHES</h2>
+    <h2 class="section-title reveal anim-title"><span>OUR BRANCHES</span></h2>
     <div class="branches-grid reveal">
       <div class="branch-card">
         <img src="assets/2.jpeg" alt="Kochi MG Road Branch">
@@ -329,7 +376,7 @@
 <!-- SOCIAL MEDIA -->
 <section class="social-media social-media-yellow">
   <div class="container">
-    <h2 class="section-title reveal anim-title" style="color:var(--primary-purple);">CONNECT WITH OUR SOCIAL MEDIA</h2>
+    <h2 class="section-title reveal anim-title" style="color:var(--primary-purple);"><span>CONNECT WITH OUR SOCIAL MEDIA</span></h2>
     <p class="section-subtitle reveal" style="color:var(--primary-purple);opacity:0.8;">Follow us on Instagram for the latest vibes, food drops &amp; behind-the-scenes goodness.</p>
 
     <!-- MOBILE MOCKUP DISPLAY -->
