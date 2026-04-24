@@ -84,10 +84,26 @@ function initMenuFiltering() {
   const container = document.getElementById('menu-items');
   const categoryTitle = document.getElementById('current-category');
   const tabs = document.querySelectorAll('.tab-btn');
+  const menuImg = document.getElementById('menu-category-img');
+
+  const categoryImages = {
+    'drinks': 'assets/4e791d00d77048808dd84d87ede703c6ca50525e.png',
+    'fried-chicken': 'assets/4fda028e7914448736e44ac12b9b606be150ce5d.png',
+    'sides': 'assets/4da54b6dbe79533b9561f0edab4129900dbe275b.png',
+    'add-ons': 'assets/5cd4045e01d39737c7a89c1174785e168e241c22.png'
+  };
 
   function renderMenu(category) {
     container.style.opacity = '0';
     container.style.transform = 'translateY(8px)';
+    
+    // Animate image opacity if it exists
+    if (menuImg) {
+      menuImg.style.opacity = '0';
+      menuImg.style.transform = 'scale(0.98)';
+      menuImg.style.transition = 'all 0.3s ease';
+    }
+
     setTimeout(() => {
       const items = menuData[category] || [];
       categoryTitle.textContent = category.replace(/-/g, ' ').toUpperCase();
@@ -98,8 +114,18 @@ function initMenuFiltering() {
           <span class="price">₹ ${item.price}</span>
         </div>
       `).join('');
+      
+      if (menuImg && categoryImages[category]) {
+        menuImg.src = categoryImages[category];
+      }
+
       container.style.opacity = '1';
       container.style.transform = 'translateY(0)';
+      
+      if (menuImg) {
+        menuImg.style.opacity = '1';
+        menuImg.style.transform = 'scale(1)';
+      }
     }, 250);
   }
 
