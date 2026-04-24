@@ -1,63 +1,52 @@
 // Wails Cafe – Main Script
 
 const menuData = {
-  breakfast: [
-    { name: "Sandwich", price: "60" },
-    { name: "Zinger Burger", price: "90" },
-    { name: "Hotdog", price: "110" },
-    { name: "Chicken Wrap", price: "150" },
-    { name: "Fried Rice", price: "160" },
-    { name: "Loaded Fries", price: "170" },
-    { name: "Crispy Roll", price: "120" }
-  ],
-  rolls: [
-    { name: "Crispy Chicken Roll", price: "120" },
-    { name: "Paneer Roll", price: "100" },
-    { name: "Egg Roll", price: "90" },
-    { name: "BBQ Beef Roll", price: "150" },
-    { name: "Veggie Roll", price: "80" }
-  ],
-  burgers: [
-    { name: "Classic Wails Burger", price: "180" },
-    { name: "Zinger Burger", price: "150" },
-    { name: "Double Smash Burger", price: "220" },
-    { name: "Chicken Burger", price: "160" },
-    { name: "Veggie Burger", price: "130" }
-  ],
-  sandwiches: [
-    { name: "Club Sandwich", price: "100" },
-    { name: "Grilled Chicken Sandwich", price: "130" },
-    { name: "BLT Sandwich", price: "120" },
-    { name: "Tuna Melt", price: "140" },
-    { name: "Veggie Delight", price: "90" }
-  ],
-  snacks: [
-    { name: "Loaded Fries", price: "170" },
-    { name: "Onion Rings", price: "90" },
-    { name: "Chicken Nuggets", price: "130" },
-    { name: "Corn Dog", price: "80" },
-    { name: "Nachos", price: "110" }
-  ],
-  evening: [
-    { name: "Spicy Fried Chicken", price: "200" },
-    { name: "BBQ Wings", price: "210" },
-    { name: "Pasta Arrabbiata", price: "180" },
-    { name: "Grilled Fish Fillet", price: "250" },
-    { name: "Lamb Kebab Platter", price: "350" }
-  ],
-  common: [
-    { name: "Chicken Fried Rice", price: "160" },
-    { name: "Egg Fried Rice", price: "120" },
-    { name: "Vegetable Fried Rice", price: "100" },
-    { name: "Butter Chicken", price: "220" },
-    { name: "Dal Makhani", price: "140" }
-  ],
   drinks: [
-    { name: "Classic Cold Coffee", price: "120" },
-    { name: "Berry Blast Shake", price: "160" },
-    { name: "Oreo Shake", price: "180" },
-    { name: "Mango Smoothie", price: "150" },
-    { name: "Fresh Lime Soda", price: "80" }
+    { name: "Ice Tea", price: "74" },
+    { name: "Lemonade", price: "74" },
+    { name: "Grape Juice", price: "74" },
+    { name: "Mint Twist", price: "76" },
+    { name: "Sunburst Soda", price: "109" },
+    { name: "Sunrise Mocktail", price: "109" },
+    { name: "Blue Lagoon Mocktail", price: "109" },
+    { name: "Pink Crush Mocktail", price: "109" },
+    { name: "Gua Chilly Mocktail", price: "109" },
+    { name: "Ice Brew Bliss", price: "139" },
+    { name: "Cold Coffee", price: "139" },
+    { name: "Ice Cream Shake", price: "136" },
+    { name: "Tender Coconut Shake", price: "159" },
+    { name: "Chikku Shake", price: "159" },
+    { name: "Oreo Shake", price: "159" },
+    { name: "Pink Berry", price: "159" },
+    { name: "Peanut Butter Shake", price: "166" },
+    { name: "Berry Blast", price: "166" }
+  ],
+  fried_chicken: [
+    { name: "Fried Chicken Single Pcs", price: "95" },
+    { name: "Fried Chicken Choice Pcs Single", price: "99" },
+    { name: "Mini Royal Box (4 pcs, fries, bun 2, mayo 2, drink 2)", price: "494" },
+    { name: "Royal Box (6 pcs, fries, bun 3, mayo 3, drink 3)", price: "767" },
+    { name: "Chicken Wings", price: "119" },
+    { name: "Flavoured Chicken Wings", price: "139" }
+  ],
+  sides: [
+    { name: "French Fries", price: "59" },
+    { name: "Loaded Fries Chicken", price: "199" },
+    { name: "Loaded Fries Beef", price: "236" },
+    { name: "Loaded Paneer", price: "196" }
+  ],
+  addons: [
+    { name: "Mayonaise", price: "22" },
+    { name: "Parotta", price: "18" },
+    { name: "Bun", price: "25" },
+    { name: "Cheese", price: "15" },
+    { name: "Egg", price: "12" },
+    { name: "Rumali", price: "21" },
+    { name: "Meals (Fries + Lemonade)", price: "74" },
+    { name: "Choice BBQ", price: "22" },
+    { name: "Chicken Patty Extra", price: "54" },
+    { name: "Beef Patty Extra", price: "82" },
+    { name: "Add Ones Spices", price: "12" }
   ]
 };
 
@@ -122,7 +111,7 @@ function initMenuFiltering() {
     });
   });
 
-  renderMenu('breakfast');
+  renderMenu('drinks');
 }
 
 // Order Popup
