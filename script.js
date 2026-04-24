@@ -88,9 +88,9 @@ function initMenuFiltering() {
 
   const categoryImages = {
     'drinks': 'assets/4e791d00d77048808dd84d87ede703c6ca50525e.png',
-    'fried-chicken': 'assets/4fda028e7914448736e44ac12b9b606be150ce5d.png',
-    'sides': 'assets/4da54b6dbe79533b9561f0edab4129900dbe275b.png',
-    'add-ons': 'assets/5cd4045e01d39737c7a89c1174785e168e241c22.png'
+    'fried_chicken': 'assets/8e5db7f52748dc7d1da75038bcd768af4338833b.png',
+    'sides': 'assets/5cd4045e01d39737c7a89c1174785e168e241c22.png',
+    'addons': 'assets/5cd4045e01d39737c7a89c1174785e168e241c22.png'
   };
 
   function renderMenu(category) {
